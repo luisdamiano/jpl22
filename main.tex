@@ -157,6 +157,39 @@
 \end{frame}
 
 \begin{frame}
+  \frametitle{Functional Input Gaussian Process (fiGP)}
+  \framesubtitle{Automatic Dynamic Relevance Determination}
+
+  \begin{align}
+    \mathbf{y}
+    &\sim \mathcal{N}\left(0, \sigma_{f}^{2} \ \mathbf{R}_f
+      + \sigma_{\varepsilon}^{2}\mathbf{I}\right) \\
+    {\left(\mathbf{R}_f\right)}_{ij}
+    &=
+      \text{exp}\left\{
+      -0.5 \phi^{-2} \ d_f(X_i, X_j)
+      \right\} \\
+    \visible<1->{
+    d_f(X_i, X_j)
+    &= \int_{\mathcal{T}}
+      \omega(t)
+      {\left(X_i(t) - X_j(t) \right)}^2 dt
+      } \\
+    \visible<1->{
+    \omega(t)
+    &: \mathcal{T}\to\mathbb{R}^+
+      }
+  \end{align}
+
+  \blankfootnote{
+    $\sigma_{\varepsilon}^2 > 0$,
+    $\sigma_{f}^2 > 0$,
+    $\phi > 0$,
+    $i, j = 1, \dots, N, N\in\mathbb{N}$
+  }
+\end{frame}
+
+\begin{frame}
   \frametitle{Asymmetrical Laplace function}
   \framesubtitle{Specification}
 
