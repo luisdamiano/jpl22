@@ -1,4 +1,4 @@
-\documentclass[handout]{snedecorbeamer}
+\documentclass{snedecorbeamer}
 
 \addtobeamertemplate{footnote}{\hskip -4ex}{}
 
@@ -129,7 +129,7 @@
     };
     % \node (eq2b) [below=of solution2b] [text width=25ex]
     \node (eq2b) [right=of eq1b] [text width=25ex]
-    [visible on=<3->]{
+    [visible on=<2->]{
       $\int_{\mathcal{T}}
       \omega(t)
       {\left(X_i(t) - X_j(t) \right)}^2 \mathrm{d}t
@@ -141,7 +141,7 @@
     };
     % \node (par2b) [below=of eq2b] [text width=25ex]
     \node (par2b) [right=of par1b] [text width=25ex]
-    [visible on=<4->]{
+    [visible on=<2->]{
       $\omega(t): \mathcal{T} \to \mathbb{R}^+$
     };
     \draw[shorten >=1ex,shorten <=1ex,line width=1pt]
@@ -351,7 +351,7 @@
       Functional input \\
       $X(t): \mathcal{T} \to \mathbb{R}$
     };
-    \visible<2->{
+    \visible<1->{
       \node (vec1) [txtbox1] [above right=4ex of inp]   [text width=20ex]
       [label=below:No structural information]{
         As a vector \\
@@ -363,7 +363,7 @@
         $\tilde{\mathbf{x}} \in \mathbb{R}^K, K \in \mathbb{N}$
       };
     }
-    \visible<3->{
+    \visible<1->{
       \node (dred) [txtbox1] [above right=4ex of vec2] [text width=10ex]
       [label={[align=right]left:High\\dimensional}]
       {
@@ -377,31 +377,31 @@
     \node (out)  [txtbox2] [right=4ex of gp] [text width=10ex]  {
       Output \\ $y \in \mathbb{R}$
     };
-    \visible<5->{
+    \visible<1->{
       \node [below=6ex of vec2.north, label=below:All this happens outside the GP$~^{[a]}$] {
       };
     }
-    \draw [->] [visible on=<2->] (inp.north) |- (vec1.west);
-    \draw [->] [visible on=<2->] (inp.south) |- (vec2.west);
-    \draw [->] [visible on=<3->] (vec1.east) -| (dred.north);
-    \draw [->] [visible on=<3->] (vec2.east) -| (dred.south);
-    \draw [->] [visible on=<3->] (dred.east) -- (gp.west);
+    \draw [->] [visible on=<1->] (inp.north) |- (vec1.west);
+    \draw [->] [visible on=<1->] (inp.south) |- (vec2.west);
+    \draw [->] [visible on=<1->] (vec1.east) -| (dred.north);
+    \draw [->] [visible on=<1->] (vec2.east) -| (dred.south);
+    \draw [->] [visible on=<1->] (dred.east) -- (gp.west);
     \draw [->] (gp.east)   -- (out.west);
-    \path [visible on=<5->] (inp.south west)
+    \path [visible on=<1->] (inp.south west)
     edge[decorate,decoration={brace,mirror,raise=10ex},line width=.6pt]
     (inp.south west -| dred.south east);
   \end{tikzpicture}
 
   {\footnotesize
     \begin{itemize}
-    \item<4-> Can we connect the functional input structure to a physical
+    \item<1-> Can we connect the functional input structure to a physical
       mechanism?
-    \item<5-> Can we incorporate the functional input structure into the GP?$~^{[b]}$
-    \item<6-> Can we circumvent input dimension reduction?
+    \item<1-> Can we incorporate the functional input structure into the GP?$~^{[b]}$
+    \item<1-> Can we circumvent input dimension reduction?
     \end{itemize}
   }
 
-  \blankfootnote{\visible<5->{
+  \blankfootnote{\visible<1->{
       $~^{[a]}$\cite{muehlenstaedt2017,nanty2016,wang2017,tan2019,wang2019,betancourt2020,betancourt2020a,li2021} \,
       $~^{[b]}$\cite{morris2012,kuttubekova2019}
     }}
