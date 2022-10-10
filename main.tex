@@ -50,40 +50,50 @@
   \titlepage{}
 \end{frame}
 
-% Methods ----------------------------------------------------------------------
+% Intro ------------------------------------------------------------------------
 \begin{frame}
-  \frametitle{Functional Input Gaussian Process (fiGP)}
-  \framesubtitle{Automatic Dynamic Relevance Determination}
+  \frametitle{Case study}
+  \framesubtitle{NASA's Microwave Limb Sounder}
 
-  \begin{align}
-    \mathbf{y}
-    &\sim \mathcal{N}\left(0, \sigma_{f}^{2} \ \mathbf{R}_f
-      + \sigma_{\varepsilon}^{2}\mathbf{I}\right) \\
-    {\left(\mathbf{R}_f\right)}_{ij}
-    &=
-      \text{exp}\left\{
-      -0.5 \phi^{-2} \ d_f(X_i, X_j)
-      \right\} \\
-    \visible<2->{
-    d_f(X_i, X_j)
-    &= \int_{\mathcal{T}}
-      \omega(t)
-      {\left(X_i(t) - X_j(t) \right)}^2 dt
-      } \\
-    \visible<2->{
-    \omega(t)
-    &: \mathcal{T}\to\mathbb{R}^+
-      }
-  \end{align}
+  \begin{columns}[t]
+    \begin{column}{.50\textwidth}
+      \begin{center}
+        \vspace{-2ex}
 
-  \blankfootnote{
-    $\sigma_{\varepsilon}^2 > 0$,
-    $\sigma_{f}^2 > 0$,
-    $\phi > 0$,
-    $i, j = 1, \dots, N, N\in\mathbb{N}$
-  }
+        \includegraphics[height=.4\textheight]{aura.jpg}
+
+        {\footnotesize \textit{Credit: NASA Aura}}
+
+        \vspace{5ex}
+
+        \definecolor{bright-spark}{RGB}{255, 195, 59}
+        \tikzstyle{nice-rectangle} = [rectangle, rounded corners,
+        minimum width=3cm, minimum height=1cm, text centered,
+        fill=bright-spark, font=\sffamily]
+        \tikzset{every label/.style={font=\itshape\footnotesize}}%
+        \begin{adjustbox}{width=.66\textwidth}
+        \begin{tikzpicture}
+          \node (input) [nice-rectangle] [text width = 15ex] [label=below:Functional
+          input $X(t)$] {Atmospheric constituents};
+          \node
+          (output) [nice-rectangle, right=of input]
+          [label=below:Scalar output $y$] {Radiance};
+          \draw [->] (input) [above] -- node {$f$} (output);
+        \end{tikzpicture}
+        \end{adjustbox}
+      \end{center}
+    \end{column}
+    \begin{column}{.50\textwidth}
+      \begin{tikzpicture}[overlay, remember picture]
+        \node[anchor=north west] (b) at (-.2, .9) {
+          \includegraphics[height=.9\textheight]{14-exploratory-profiles-vertical.png}
+        };
+      \end{tikzpicture}
+    \end{column}
+  \end{columns}
 \end{frame}
 
+% Methods ----------------------------------------------------------------------
 \begin{frame}
   \frametitle{Functional Input Gaussian Process (fiGP)}
   \framesubtitle{From ARD to ADRD}
@@ -186,44 +196,6 @@
 \end{frame}
 
 % Case study -------------------------------------------------------------------
-\begin{frame}
-  \frametitle{Case study}
-  \framesubtitle{NASA's Microwave Limb Sounder}
-
-  \begin{columns}[t]
-    \begin{column}{0.5\textwidth}
-      \begin{center}
-        \includegraphics[height=.4\textheight]{aura.jpg}
-
-        {\footnotesize \textit{Credit: NASA Aura}}
-
-        \vspace{5ex}
-
-        \definecolor{bright-spark}{RGB}{255, 195, 59}
-        \tikzstyle{nice-rectangle} = [rectangle, rounded corners,
-        minimum width=3cm, minimum height=1cm, text centered,
-        fill=bright-spark, font=\sffamily]
-        \tikzset{every label/.style={font=\itshape\footnotesize}}%
-        \begin{tikzpicture}
-          \node (input) [nice-rectangle] [text width = 15ex] [label=below:Functional
-          input $X(t)$] {Atmospheric constituents};
-          \node
-          (output) [nice-rectangle, right=of input]
-          [label=below:Scalar output $y$] {Radiance};
-          \draw [->] (input) [above] -- node {$f$} (output);
-        \end{tikzpicture}
-      \end{center}
-    \end{column}
-    \begin{column}{0.5\textwidth}
-      \begin{tikzpicture}[overlay, remember picture]
-        \node[anchor=north west] (b) at (-.2, .9) {
-          \includegraphics[height=.9\textheight]{eda-profile.png}
-        };
-      \end{tikzpicture}
-    \end{column}
-  \end{columns}
-\end{frame}
-
 \begin{frame}
   \frametitle{Case study}
   \framesubtitle{Implementation}
