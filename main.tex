@@ -39,7 +39,7 @@
     \tiny{\href{mailto:ldamiano@iastate.edu}{ldamiano@iastate.edu}}%
     \newline
     \tiny{Submitted to Technometrics:
-    \href{https://doi.org/10.48550/arXiv.2209.00044}{10.48550/arXiv.2209.00044}}
+      \href{https://doi.org/10.48550/arXiv.2209.00044}{10.48550/arXiv.2209.00044}}
   }\inst{1},
   Margaret Johnson\inst{2},
   Joaquim Teixeira\inst{2},
@@ -129,7 +129,7 @@
     \node (par1b) [below=of eq1b] [text width=25ex]{
       $\ell^{-2}_1, \cdots, \ell^{-2}_K > 0$
     };
-    %\node (par2b) [below=of eq2b] [text width=25ex]
+    % \node (par2b) [below=of eq2b] [text width=25ex]
     \node (par2b) [right=of par1b] [text width=25ex]
     [visible on=<4->]{
       $\omega(t): \mathcal{T} \to \mathbb{R}^+$
@@ -190,35 +190,35 @@
   \frametitle{Case study}
   \framesubtitle{NASA's Microwave Limb Sounder}
 
-    \begin{columns}[t]
+  \begin{columns}[t]
     \begin{column}{0.5\textwidth}
       \begin{center}
-	\includegraphics[height=.4\textheight]{aura.jpg}
+        \includegraphics[height=.4\textheight]{aura.jpg}
 
-	{\footnotesize \textit{Credit: NASA Aura}}
+        {\footnotesize \textit{Credit: NASA Aura}}
 
-	\vspace{5ex}
+        \vspace{5ex}
 
-	\definecolor{bright-spark}{RGB}{255, 195, 59}
-	\tikzstyle{nice-rectangle} = [rectangle, rounded corners,
-	minimum width=3cm, minimum height=1cm, text centered,
-	fill=bright-spark, font=\sffamily]
-	\tikzset{every label/.style={font=\itshape\footnotesize}}%
-	\begin{tikzpicture}
-	  \node (input) [nice-rectangle] [text width = 15ex] [label=below:Functional
-	  input $X(t)$] {Atmospheric constituents};
-	  \node
-	  (output) [nice-rectangle, right=of input]
-	  [label=below:Scalar output $y$] {Radiance};
-	  \draw [->] (input) [above] -- node {$f$} (output);
-	\end{tikzpicture}
+        \definecolor{bright-spark}{RGB}{255, 195, 59}
+        \tikzstyle{nice-rectangle} = [rectangle, rounded corners,
+        minimum width=3cm, minimum height=1cm, text centered,
+        fill=bright-spark, font=\sffamily]
+        \tikzset{every label/.style={font=\itshape\footnotesize}}%
+        \begin{tikzpicture}
+          \node (input) [nice-rectangle] [text width = 15ex] [label=below:Functional
+          input $X(t)$] {Atmospheric constituents};
+          \node
+          (output) [nice-rectangle, right=of input]
+          [label=below:Scalar output $y$] {Radiance};
+          \draw [->] (input) [above] -- node {$f$} (output);
+        \end{tikzpicture}
       \end{center}
     \end{column}
     \begin{column}{0.5\textwidth}
       \begin{tikzpicture}[overlay, remember picture]
-	\node[anchor=north west] (b) at (-.2, .9) {
-	  \includegraphics[height=.9\textheight]{eda-profile.png}
-	};
+        \node[anchor=north west] (b) at (-.2, .9) {
+          \includegraphics[height=.9\textheight]{eda-profile.png}
+        };
       \end{tikzpicture}
     \end{column}
   \end{columns}
@@ -328,20 +328,20 @@
     \visible<2->{
       \node (vec1) [txtbox1] [above right=4ex of inp]   [text width=20ex]
       [label=below:No structural information]{
-	As a vector \\
-	$\mathbf{x} \in \mathbb{R}^K, K \in \mathbb{N}$
+        As a vector \\
+        $\mathbf{x} \in \mathbb{R}^K, K \in \mathbb{N}$
       };
       \node (vec2) [txtbox1] [below right=4ex of inp]   [text width=20ex]
       [label=above:Additional modeling decisions]{
-	Basis representation \\
-	$\tilde{\mathbf{x}} \in \mathbb{R}^K, K \in \mathbb{N}$
+        Basis representation \\
+        $\tilde{\mathbf{x}} \in \mathbb{R}^K, K \in \mathbb{N}$
       };
     }
     \visible<3->{
       \node (dred) [txtbox1] [above right=4ex of vec2] [text width=10ex]
       [label={[align=right]left:High\\dimensional}]
       {
-	Dimension \\ reduction
+        Dimension \\ reduction
       };
     }
 
